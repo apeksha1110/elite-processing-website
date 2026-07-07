@@ -1,8 +1,7 @@
-import Image from "next/image";
 import { company } from "@/lib/content";
 
 // Renders the brand logo, swapping to a white-text variant in dark mode.
-// Both images are tiny; only one is visible per theme via CSS.
+// SVG files are served directly — Next.js Image doesn't optimize SVGs.
 export default function Logo({
   className = "",
   priority = false,
@@ -12,20 +11,18 @@ export default function Logo({
 }) {
   return (
     <>
-      <Image
-        src="/logo.png"
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/logo.svg"
         alt={company.name}
-        width={920}
-        height={265}
-        priority={priority}
+        fetchPriority={priority ? "high" : "auto"}
         className={`${className} dark:hidden`}
       />
-      <Image
-        src="/logo-dark.png"
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/logo-dark.svg"
         alt={company.name}
-        width={920}
-        height={265}
-        priority={priority}
+        fetchPriority={priority ? "high" : "auto"}
         className={`hidden dark:block ${className}`}
       />
     </>

@@ -46,7 +46,7 @@ export default function Navbar() {
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
           ? "bg-surface/85 shadow-[0_2px_20px_rgba(233,30,140,0.08)] backdrop-blur-md"
-          : "bg-transparent"
+          : "bg-surface border-b border-rose-tint"
       }`}
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
@@ -55,7 +55,7 @@ export default function Navbar() {
           className="flex items-center"
           aria-label={company.legalName}
         >
-          <Logo priority className="h-9 w-auto sm:h-10" />
+          <Logo priority className="h-auto w-36 -my-2 sm:w-44 sm:-my-3" />
         </a>
 
         <ul className="hidden items-center gap-7 md:flex">
