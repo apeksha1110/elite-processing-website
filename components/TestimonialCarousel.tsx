@@ -4,31 +4,32 @@ import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import { testimonials } from "@/lib/content";
 
+const pages = testimonials.length;
+
 export default function TestimonialCarousel() {
-  const [perView, setPerView] = useState(1);
   const [page, setPage] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const [resetKey, setResetKey] = useState(0);
 
-  // 2 cards per page on md+ screens, 1 on mobile.
+  // Auto-advance every 5 s. Pauses on hover; resets timer on manual nav.
   useEffect(() => {
-    const mq = window.matchMedia("(min-width: 768px)");
-    const apply = () => setPerView(mq.matches ? 2 : 1);
-    apply();
-    mq.addEventListener("change", apply);
-    return () => mq.removeEventListener("change", apply);
-  }, []);
+    if (paused) return;
+    const id = setInterval(() => {
+      setPage((p) => (p + 1) % pages);
+    }, 5000);
+    return () => clearInterval(id);
+  }, [paused, resetKey]);
 
-  const pages = Math.ceil(testimonials.length / perView);
-
-  // Keep the current page valid when perView changes.
-  useEffect(() => {
-    setPage((p) => Math.min(p, pages - 1));
-  }, [pages]);
-
-  const go = (dir: number) => setPage((p) => (p + dir + pages) % pages);
+  const go = (dir: number) => {
+    setPage((p) => (p + dir + pages) % pages);
+    setResetKey((k) => k + 1);
+  };
 
   return (
     <div
-      className={`mx-auto mt-12 ${perView === 2 ? "max-w-5xl" : "max-w-2xl"}`}
+      className="mx-auto mt-12 max-w-3xl"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
     >
       {/* Viewport */}
       <div className="overflow-hidden">
@@ -37,18 +38,14 @@ export default function TestimonialCarousel() {
           style={{ transform: `translateX(-${page * 100}%)` }}
         >
           {testimonials.map((t) => (
-            <figure
-              key={t.name}
-              className="shrink-0 px-2"
-              style={{ flex: `0 0 ${100 / perView}%` }}
-            >
-              <div className="flex h-full flex-col rounded-2xl border border-rose-tint bg-rose-tint/40 p-8 sm:p-10">
-                <Quote className="text-rose-soft" size={34} />
-                <blockquote className="mt-4 grow text-lg leading-relaxed text-ink">
+            <figure key={t.name} className="w-full shrink-0 px-2">
+              <div className="flex flex-col rounded-2xl border border-rose-tint bg-rose-tint/40 p-8">
+                <Quote className="text-rose-soft" size={30} />
+                <blockquote className="mt-4 text-base leading-relaxed text-ink">
                   {t.quote}
                 </blockquote>
                 <figcaption className="mt-6 flex items-center gap-3">
-                  <span className="grid h-12 w-12 place-items-center rounded-full bg-surface font-display text-lg font-bold text-rose-deep">
+                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-surface font-display text-base font-bold text-rose-deep">
                     {t.name[0]}
                   </span>
                   <div>
@@ -63,26 +60,26 @@ export default function TestimonialCarousel() {
       </div>
 
       {/* Controls */}
-      <div className="mt-7 flex items-center justify-center gap-5">
+      <div className="mt-6 flex items-center justify-center gap-5">
         <button
           onClick={() => go(-1)}
-          aria-label="Previous testimonials"
+          aria-label="Previous testimonial"
           className="grid h-10 w-10 place-items-center rounded-full border border-rose-tint text-rose-primary transition hover:bg-rose-primary hover:text-white"
         >
           <ChevronLeft size={20} />
         </button>
 
         <div className="flex gap-2">
-          {Array.from({ length: pages }).map((_, i) => (
+          {testimonials.map((_, i) => (
             <button
               key={i}
-              onClick={() => setPage(i)}
-              aria-label={`Go to page ${i + 1}`}
+              onClick={() => { setPage(i); setResetKey((k) => k + 1); }}
+              aria-label={`Go to testimonial ${i + 1}`}
               aria-current={i === page ? "true" : undefined}
-              className={`h-2.5 rounded-full transition-all ${
+              className={`h-2 rounded-full transition-all ${
                 i === page
-                  ? "w-6 bg-rose-primary"
-                  : "w-2.5 bg-rose-soft/50 hover:bg-rose-soft"
+                  ? "w-5 bg-rose-primary"
+                  : "w-2 bg-rose-soft/50 hover:bg-rose-soft"
               }`}
             />
           ))}
@@ -90,7 +87,7 @@ export default function TestimonialCarousel() {
 
         <button
           onClick={() => go(1)}
-          aria-label="Next testimonials"
+          aria-label="Next testimonial"
           className="grid h-10 w-10 place-items-center rounded-full border border-rose-tint text-rose-primary transition hover:bg-rose-primary hover:text-white"
         >
           <ChevronRight size={20} />

@@ -157,6 +157,36 @@ export const testimonials = [
     name: "Vipul",
     role: "VEMA Mortgage",
   },
+  {
+    quote:
+      "Deepa, first I would like to say Thank you so much for all of your hard work and dedication in processing the loan for my first-time home buyer. You were organized & thorough & professional, as well as kind which made all of the difference in our interactions with you. The new home owner and myself put our trust in you and you most definitely came through in uploading and making sure all documentation was submitted in a timely manner. Thank you for your patience as well as treating us as people rather than just home loan customers. Thus far you are the best processor I have ever worked with. I highly recommend Deepa Patel to all loan officers looking for a dedicated and exceptional processor.",
+    name: "Irma Lucadou",
+    role: "Set Me Free Mortgage",
+  },
+  {
+    quote:
+      "I have referred Elite Processing Team and Deepa Patel to several partners, within days of that intro I get inundated with \"thank yous\". She and her team are well versed with many different lenders and they seek to learn each TPO's process in order to provide the best client experience. Thanks to Elite Processing Team for making my life easier!",
+    name: "Derrick Stott",
+    role: "Rocket Mortgage",
+  },
+  {
+    quote:
+      "Deepa is an amazing processor, she is very knowledgeable and keeps our files clean. She is extremely proactive and makes sure the clients get to the closing table!",
+    name: "Gary Pierce",
+    role: "Pure Funding",
+  },
+  {
+    quote:
+      "We use Elite Processing Team on all of our loans. The team is quick to respond, treats our clients with respect, and has a wealth of knowledge regarding the documents needed for a variety of loan types. We wouldn't use anyone else!",
+    name: "Willis Richardson",
+    role: "Pure Funding",
+  },
+  {
+    quote:
+      "I highly recommend Deepa & her team. They go above and beyond to ensure a smooth transaction. Deepa is always looking for ways to take more off my team's plate.",
+    name: "Vittorio Sbrocca",
+    role: "First Team Lending Group",
+  },
 ];
 
 export const team = [
