@@ -57,51 +57,83 @@ export const services = [
   },
 ];
 
-// PRICING — placeholder figures. Replace `price` and feature lists with the
-// real numbers/terms. `highlight: true` visually features a tier.
+// PRICING — flat per-file rates covering all loan types.
+// `highlight: true` visually features a tier.
 export const pricing = {
-  note: "Flat per-file pricing, paid at closing. No monthly fees, no upfront cost — you only pay when the loan closes.",
+  note: "Flat per-file pricing across all loan types — Conventional, FHA, VA, USDA, Jumbo, and Non-QM. No volume minimums, no monthly commitments. You pay per file, nothing more.",
   tiers: [
     {
-      name: "Conventional & Government",
-      price: "$XXX",
+      name: "Basic Processing",
+      price: "$599",
       unit: "per file",
-      blurb: "Conventional, FHA, VA, and USDA loans.",
+      blurb:
+        "Loan submission to closing. We take the file from the moment it's submitted to underwriting and carry it through to funding.",
       features: [
-        "Full document retrieval",
-        "Submission to underwriting",
-        "Condition follow-up to clear-to-close",
-        "Closing coordination",
+        "Appraisal, title, flood & HOI ordering",
+        "Underwriting submission & conditions management",
+        "Clear-to-close coordination",
+        "Closing & compliance data entry",
+        "Post-close archival",
       ],
       highlight: false,
     },
     {
-      name: "Non-QM & Jumbo",
-      price: "$XXX",
+      name: "Elite Processing",
+      price: "$899",
       unit: "per file",
-      blurb: "Bank statement, DSCR, jumbo, and other non-QM products.",
+      blurb:
+        "Disclosures to closing. Our most comprehensive tier — we step in at the very start of the file, preparing initial disclosures and carrying the loan all the way through.",
       features: [
-        "Everything in Conventional & Government",
-        "Complex income & asset review",
-        "Specialized non-QM lender submission",
-        "Priority condition management",
+        "Initial disclosure preparation & issuance",
+        "Loan Estimate prep & TRID compliance review",
+        "Re-disclosure management throughout the file",
+        "Everything in Basic Processing",
+        "Closing Disclosure review & lender/title balance",
+        "Full HMDA & compliance data entry",
+        "Final signed CD upload & post-close archival",
       ],
       highlight: true,
     },
     {
-      name: "Contract / Per-Hour",
-      price: "$XX",
-      unit: "per hour",
-      blurb: "Overflow help and à la carte processing tasks.",
+      name: "Streamline & IRRRL",
+      price: "$399",
+      unit: "per file",
+      blurb:
+        "FHA Streamlines & VA IRRRLs. A dedicated lower rate reflecting the reduced documentation requirements of these loan types.",
       features: [
-        "Pay only for time used",
-        "Scales with your pipeline",
-        "Great for busy seasons",
-        "No long-term commitment",
+        "FHA case number ordering (Streamlines)",
+        "Streamlined document package preparation",
+        "Underwriting submission & conditions",
+        "Clear-to-close & closing coordination",
+        "Compliance data entry & post-close archival",
       ],
       highlight: false,
     },
   ],
+  byop: {
+    eyebrow: "For Processors",
+    title: "Bring Your Own Processor",
+    description: [
+      "Already have a processor you love working with? Our flat-rate model lets your processor work under the Elite Processing Team umbrella — with our systems, our compliance standards, and our support behind every file.",
+      "Ideal for Loan Officers who have an established processing relationship and want the structure and accountability of a third-party company without changing who handles their files.",
+    ],
+    tier: {
+      tag: "1099 Processor",
+      price: "$299",
+      unit: "per file",
+      features: [
+        "Your processor works the file under our platform",
+        "Access to our systems, checklists, and SOPs",
+        "Quality control oversight on every file",
+        "Compliance and post-close support included",
+        "Flat $299 per file — no hidden fees",
+      ],
+    },
+    w2: {
+      label: "Interested in W-2 options?",
+      text: "W-2 processor arrangements are available — pricing is customized based on your volume and needs. Reach out and we'll put together a structure that works for you.",
+    },
+  },
 };
 
 export const approvedStates = [
@@ -187,6 +219,24 @@ export const testimonials = [
     name: "Vittorio Sbrocca",
     role: "First Team Lending Group",
   },
+  {
+    quote:
+      "What I appreciate most is that I can hand off a file and actually move on. No micromanaging, no wondering if anything fell through the cracks. Elite Processing Team handles it and handles it well.",
+    name: "Pranesh Ambati",
+    role: "ShopWise Mortgage",
+  },
+  {
+    quote:
+      "As a broker, my reputation depends on who I partner with behind the scenes. Elite Processing Team is organized, responsive, and knows their guidelines. I trust them with every file I have.",
+    name: "Chinmaya Machala",
+    role: "Northeast Mortgage",
+  },
+  {
+    quote:
+      "Fast, reliable, and easy to work with. Exactly what I was looking for.",
+    name: "Shri Pattabhi",
+    role: "Direct Home Mortgages",
+  },
 ];
 
 export const team = [
@@ -194,6 +244,11 @@ export const team = [
     name: "Deepa Patel",
     role: "Founder & CEO",
     photo: "/team/deepa-patel.jpg",
-    bio: "When I joined the mortgage industry, I quickly realized that the most important part of the loan approval process, loan processing, was also the most tedious. Through my experience in this field, I gathered techniques to make this process seamless for all parties involved. This motivated me to create Elite Processing Team. Attention to detail has always been one of my strengths, and I intend to channel this skill to make Elite Processing Team the perfect link between the loan officer, the lender, and most importantly, the borrower.",
+    bio: [
+      "Hi, I'm Deepa — founder of Elite Processing Team.",
+      "I came into the mortgage industry and quickly gravitated toward loan processing — the part of the business that doesn't get the spotlight, but is where everything either comes together or falls apart. Over time, I learned what made files move smoothly versus what caused them to stall, and I built Elite Processing Team around that experience.",
+      "My goal is to give Loan Officers a processing partner who's organized, communicative, and genuinely invested in getting the loan to closing — someone who treats every file with care, follows up without being asked, and flags problems before they become delays. I take details seriously, because behind every file is a borrower counting on this process to go right.",
+      "I'm glad you're here, and I'd love to work with your team.",
+    ],
   },
 ];

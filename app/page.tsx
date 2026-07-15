@@ -174,7 +174,7 @@ export default function Home() {
                           / {t.unit}
                         </span>
                       </div>
-                      <ul className="mt-6 space-y-3">
+                      <ul className="mt-6 mb-8 space-y-3">
                         {t.features.map((f) => (
                           <li
                             key={f}
@@ -190,7 +190,7 @@ export default function Home() {
                       </ul>
                       <a
                         href="#contact"
-                        className={`mt-8 inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-transform hover:scale-[1.03] ${
+                        className={`mt-auto inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-transform hover:scale-[1.03] ${
                           t.highlight
                             ? "bg-rose-primary text-white hover:bg-rose-deep"
                             : "border border-rose-soft bg-surface text-rose-deep hover:bg-rose-tint"
@@ -203,10 +203,72 @@ export default function Home() {
                 ))}
               </div>
               <p className="mx-auto mt-10 max-w-2xl text-center text-xs text-ink-soft/80">
-                Pricing shown is illustrative. Final pricing depends on loan type
-                and volume — reach out for a custom quote tailored to your
-                business.
+                Not sure which tier fits your file? Ask us before you submit —
+                we&rsquo;ll point you in the right direction.
               </p>
+
+              {/* Bring Your Own Processor */}
+              <Reveal>
+                <div className="mt-16 grid gap-10 rounded-3xl border border-rose-tint bg-rose-bg p-8 md:grid-cols-2 md:p-12">
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-rose-primary">
+                      {pricing.byop.eyebrow}
+                    </p>
+                    <h3 className="mt-4 font-display text-2xl font-bold text-ink sm:text-3xl">
+                      {pricing.byop.title}
+                    </h3>
+                    {pricing.byop.description.map((p) => (
+                      <p key={p.slice(0, 32)} className="mt-4 text-sm leading-relaxed text-ink-soft">
+                        {p}
+                      </p>
+                    ))}
+                  </div>
+                  <div className="flex flex-col gap-4">
+                    <div className="rounded-2xl border border-rose-tint bg-surface p-8">
+                      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ink-soft">
+                        {pricing.byop.tier.tag}
+                      </p>
+                      <div className="mt-4 flex items-baseline gap-1">
+                        <span className="font-display text-4xl font-bold text-rose-primary">
+                          {pricing.byop.tier.price}
+                        </span>
+                        <span className="text-sm text-ink-soft">
+                          / {pricing.byop.tier.unit}
+                        </span>
+                      </div>
+                      <ul className="mt-6 space-y-3">
+                        {pricing.byop.tier.features.map((f) => (
+                          <li
+                            key={f}
+                            className="flex items-start gap-2 text-sm text-ink"
+                          >
+                            <Check
+                              size={18}
+                              className="mt-0.5 shrink-0 text-rose-primary"
+                            />
+                            {f}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="rounded-2xl border border-rose-tint bg-surface p-6">
+                      <p className="text-sm font-semibold text-ink">
+                        {pricing.byop.w2.label}
+                      </p>
+                      <p className="mt-2 text-sm leading-relaxed text-ink-soft">
+                        {pricing.byop.w2.text}
+                      </p>
+                      <a
+                        href="#contact"
+                        className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-rose-deep hover:text-rose-primary"
+                      >
+                        Contact us to discuss W-2 options{" "}
+                        <ArrowRight size={16} />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
             </div>
           </div>
         </section>
@@ -276,9 +338,11 @@ export default function Home() {
                     <p className="text-sm font-medium text-rose-primary">
                       {m.role}
                     </p>
-                    <p className="mt-4 text-sm leading-relaxed text-ink-soft">
-                      &ldquo;{m.bio}&rdquo;
-                    </p>
+                    <div className="mt-4 space-y-3 text-left text-sm leading-relaxed text-ink-soft">
+                      {m.bio.map((paragraph) => (
+                        <p key={paragraph.slice(0, 32)}>{paragraph}</p>
+                      ))}
+                    </div>
                   </div>
                 </Reveal>
               ))}
@@ -474,23 +538,43 @@ export default function Home() {
         </div>
       </footer>
 
-      {/* Spacer so the mobile sticky bar never covers footer content */}
-      <div className="h-16 md:hidden" />
+      {/* Spacer so sticky bar never covers footer content */}
+      <div className="h-14 md:h-11" />
 
-      {/* MOBILE STICKY CONTACT BAR */}
-      <div className="fixed inset-x-0 bottom-0 z-40 flex gap-2 border-t border-rose-tint bg-surface/95 p-3 backdrop-blur-md md:hidden">
-        <a
-          href={`tel:${company.phoneHref}`}
-          className="flex flex-1 items-center justify-center gap-2 rounded-full bg-rose-primary py-3 text-sm font-semibold text-white"
-        >
-          <Phone size={16} /> Call
-        </a>
-        <a
-          href={`mailto:${company.email}`}
-          className="flex flex-1 items-center justify-center gap-2 rounded-full border border-rose-soft py-3 text-sm font-semibold text-rose-deep"
-        >
-          <Mail size={16} /> Email
-        </a>
+      {/* STICKY CONTACT BAR — all screens */}
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-rose-tint bg-surface/95 backdrop-blur-md shadow-[0_-2px_12px_rgba(233,30,140,0.06)]">
+        {/* Mobile: two pill buttons */}
+        <div className="flex gap-2 p-3 md:hidden">
+          <a
+            href={`tel:${company.phoneHref}`}
+            className="flex flex-1 items-center justify-center gap-2 rounded-full bg-rose-primary py-3 text-sm font-semibold text-white"
+          >
+            <Phone size={16} /> Call
+          </a>
+          <a
+            href={`mailto:${company.email}`}
+            className="flex flex-1 items-center justify-center gap-2 rounded-full border border-rose-soft py-3 text-sm font-semibold text-rose-deep"
+          >
+            <Mail size={16} /> Email
+          </a>
+        </div>
+        {/* Desktop: slim centered bar with full contact details */}
+        <div className="hidden md:flex items-center justify-center divide-x divide-rose-tint">
+          <a
+            href={`tel:${company.phoneHref}`}
+            className="flex items-center gap-2 px-8 py-2.5 text-sm font-medium text-ink-soft transition-colors hover:text-rose-primary"
+          >
+            <Phone size={15} className="text-rose-primary" />
+            {company.phone}
+          </a>
+          <a
+            href={`mailto:${company.email}`}
+            className="flex items-center gap-2 px-8 py-2.5 text-sm font-medium text-ink-soft transition-colors hover:text-rose-primary"
+          >
+            <Mail size={15} className="text-rose-primary" />
+            {company.email}
+          </a>
+        </div>
       </div>
     </>
   );
