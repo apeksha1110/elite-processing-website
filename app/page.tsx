@@ -120,7 +120,7 @@ export default function Home() {
                 const Icon = iconMap[s.icon as keyof typeof iconMap];
                 return (
                   <Reveal key={s.title} delay={i * 0.08}>
-                    <div className="group h-full rounded-2xl border border-rose-tint bg-rose-bg p-6 transition hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(233,30,140,0.12)]">
+                    <div className="group h-full rounded-2xl border border-rose-tint bg-rose-bg p-6 transition hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(42,38,45,0.10)]">
                       <span className="grid h-12 w-12 place-items-center rounded-xl bg-rose-primary/10 text-rose-primary transition group-hover:bg-rose-primary group-hover:text-white">
                         <Icon size={22} />
                       </span>
@@ -322,7 +322,7 @@ export default function Home() {
             <div className="mx-auto mt-12 max-w-md">
               {team.map((m, i) => (
                 <Reveal key={m.name} delay={i * 0.1}>
-                  <div className="flex h-full flex-col rounded-3xl border border-rose-tint bg-surface p-8 text-center shadow-[0_12px_40px_rgba(233,30,140,0.06)]">
+                  <div className="flex h-full flex-col rounded-3xl border border-rose-tint bg-surface p-8 text-center shadow-[0_12px_40px_rgba(42,38,45,0.07)]">
                     <div className="relative mx-auto h-40 w-40 overflow-hidden rounded-full ring-4 ring-rose-soft/40">
                       <Image
                         src={m.photo}
@@ -440,7 +440,7 @@ export default function Home() {
             height={600}
             className="h-72 w-full object-cover sm:h-80"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-rose-deep/85 via-rose-primary/70 to-rose-primary/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-ink/85 via-rose-deep/70 to-rose-primary/30" />
           <div className="absolute inset-0 flex items-center">
             <div className="mx-auto w-full max-w-6xl px-5">
               <Reveal>
@@ -542,7 +542,7 @@ export default function Home() {
       <div className="h-14 md:h-11" />
 
       {/* STICKY CONTACT BAR — all screens */}
-      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-rose-tint bg-surface/95 backdrop-blur-md shadow-[0_-2px_12px_rgba(233,30,140,0.06)]">
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-rose-tint bg-surface/95 backdrop-blur-md shadow-[0_-2px_12px_rgba(42,38,45,0.07)]">
         {/* Mobile: two pill buttons */}
         <div className="flex gap-2 p-3 md:hidden">
           <a

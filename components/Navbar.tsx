@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { nav, company } from "@/lib/content";
-import ThemeToggle from "./ThemeToggle";
 import Logo from "./Logo";
 
 export default function Navbar() {
@@ -45,7 +44,7 @@ export default function Navbar() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-surface/85 shadow-[0_2px_20px_rgba(233,30,140,0.08)] backdrop-blur-md"
+          ? "bg-surface/85 shadow-[0_2px_20px_rgba(42,38,45,0.08)] backdrop-blur-md"
           : "bg-surface border-b border-rose-tint"
       }`}
     >
@@ -76,20 +75,13 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <div className="hidden items-center gap-3 md:flex">
-          <ThemeToggle />
-        </div>
-
-        <div className="flex items-center gap-2 md:hidden">
-          <ThemeToggle />
-          <button
-            aria-label="Toggle menu"
-            className="text-ink"
-            onClick={() => setOpen((v) => !v)}
-          >
-            {open ? <X size={26} /> : <Menu size={26} />}
-          </button>
-        </div>
+        <button
+          aria-label="Toggle menu"
+          className="text-ink md:hidden"
+          onClick={() => setOpen((v) => !v)}
+        >
+          {open ? <X size={26} /> : <Menu size={26} />}
+        </button>
       </nav>
 
       {open && (

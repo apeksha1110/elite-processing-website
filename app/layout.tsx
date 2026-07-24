@@ -63,18 +63,8 @@ export default function RootLayout({
     identifier: { "@type": "PropertyValue", name: "NMLS", value: company.nmls },
   };
 
-  // Set the theme class before first paint to avoid a flash of the wrong theme.
-  const noFlash = `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark')}}catch(e){}})();`;
-
   return (
-    <html
-      lang="en"
-      className={`${playfair.variable} ${inter.variable}`}
-      suppressHydrationWarning
-    >
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: noFlash }} />
-      </head>
+    <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
       <body>
         <a href="#main-content" className="skip-link">
           Skip to content

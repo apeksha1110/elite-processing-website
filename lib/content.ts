@@ -125,7 +125,6 @@ export const pricing = {
         "Your processor works the file under our platform",
         "Access to our systems, checklists, and SOPs",
         "Quality control oversight on every file",
-        "Compliance and post-close support included",
         "Flat $299 per file — no hidden fees",
       ],
     },
@@ -168,30 +167,18 @@ export const testimonials = [
   {
     quote:
       "Adding Deepa to my team was one of the best decisions I made. She is very attentive to detail and very responsive to all my clients. She has helped me increase my volume by taking the back-end paperwork off my plate and letting me focus on the front-end. I would recommend her to anyone looking to grow their business.",
-    name: "Nikki",
+    name: "Nikki Shah",
     role: "Creative Mortgage",
   },
   {
     quote:
-      "Deepa is a hard worker and a quick learner. She communicates clearly and follows up promptly with clients, underwriters, and third-party agents to get the necessary information and get the loan to closing. Always willing to go the extra mile.",
-    name: "Chirag",
-    role: "VEMA Mortgage",
-  },
-  {
-    quote:
       "Deepa and her team are the best processors I have ever worked with. She utilizes all technology available which makes Elite Processing loans close quicker and easier than other companies. She has amazing communication skills, so you are always kept informed and updated. From start to finish she makes the process transparent and flawless. I would not recommend anyone else more than her!",
-    name: "Haley",
+    name: "Haley Falkowski",
     role: "UWM",
   },
   {
     quote:
-      "Deepa is by far the best loan processor I have worked with in recent years. She has strong communication skills and maintains constant communication with clients to ensure a timely closing of loans while maintaining the highest level of customer service. I highly recommend Deepa and her team for loan processing.",
-    name: "Vipul",
-    role: "VEMA Mortgage",
-  },
-  {
-    quote:
-      "Deepa, first I would like to say Thank you so much for all of your hard work and dedication in processing the loan for my first-time home buyer. You were organized & thorough & professional, as well as kind which made all of the difference in our interactions with you. The new home owner and myself put our trust in you and you most definitely came through in uploading and making sure all documentation was submitted in a timely manner. Thank you for your patience as well as treating us as people rather than just home loan customers. Thus far you are the best processor I have ever worked with. I highly recommend Deepa Patel to all loan officers looking for a dedicated and exceptional processor.",
+      "Thank you for your patience as well as treating us as people rather than just home loan customers. Thus far you are the best processor I have ever worked with. I highly recommend Deepa Patel to all loan officers looking for a dedicated and exceptional processor.",
     name: "Irma Lucadou",
     role: "Set Me Free Mortgage",
   },
@@ -221,6 +208,18 @@ export const testimonials = [
   },
   {
     quote:
+      "Deepa is a hard worker and a quick learner. She communicates clearly and follows up promptly with clients, underwriters, and third-party agents to get the necessary information and get the loan to closing. Always willing to go the extra mile.",
+    name: "Chirag Rachhadia",
+    role: "VEMA Mortgage",
+  },
+  {
+    quote:
+      "Deepa is by far the best loan processor I have worked with in recent years. She has strong communication skills and maintains constant communication with clients to ensure a timely closing of loans while maintaining the highest level of customer service. I highly recommend Deepa and her team for loan processing.",
+    name: "Vipul Hapani",
+    role: "VEMA Mortgage",
+  },
+  {
+    quote:
       "What I appreciate most is that I can hand off a file and actually move on. No micromanaging, no wondering if anything fell through the cracks. Elite Processing Team handles it and handles it well.",
     name: "Pranesh Ambati",
     role: "ShopWise Mortgage",
@@ -246,8 +245,8 @@ export const team = [
     photo: "/team/deepa-patel.jpg",
     bio: [
       "Hi, I'm Deepa — founder of Elite Processing Team.",
-      "I came into the mortgage industry and quickly gravitated toward loan processing — the part of the business that doesn't get the spotlight, but is where everything either comes together or falls apart. Over time, I learned what made files move smoothly versus what caused them to stall, and I built Elite Processing Team around that experience.",
-      "My goal is to give Loan Officers a processing partner who's organized, communicative, and genuinely invested in getting the loan to closing — someone who treats every file with care, follows up without being asked, and flags problems before they become delays. I take details seriously, because behind every file is a borrower counting on this process to go right.",
+      "I came into the mortgage industry and quickly gravitated toward loan processing, the part of the business that doesn't get the spotlight, but is where everything either comes together or falls apart. Over time, I learned what made files move smoothly versus what caused them to stall, and I built Elite Processing Team around that experience.",
+      "My goal is to give Loan Officers a processing partner who's organized, communicative, and genuinely invested in getting the loan to closing. Someone who treats every file with care, follows up without being asked, and flags problems before they become delays. I take details seriously, because behind every file is a borrower counting on this process to go right.",
       "I'm glad you're here, and I'd love to work with your team.",
     ],
   },

@@ -1,15 +1,12 @@
 @import "tailwindcss";
 
-/* Class-based dark mode: toggle by adding `.dark` on <html> */
-@custom-variant dark (&:where(.dark, .dark *));
-
 @theme {
-  /* Brand pinks — constant across light/dark */
-  --color-rose-soft: #f9a8d4;
+  /* Brand pinks — reserved for accents: CTAs, icons, prices, active states */
+  --color-rose-soft: #f7b6d7;
   --color-rose-primary: #e91e8c;
   --color-rose-deep: #c01573;
 
-  /* Semantic tokens — flip via CSS vars under .dark */
+  /* Structural tokens — neutral greys and white carry the layout */
   --color-rose-bg: var(--bg);
   --color-surface: var(--surface);
   --color-rose-tint: var(--tint);
@@ -21,23 +18,14 @@
 }
 
 :root {
-  --bg: #fff5fa;
+  --bg: #f7f6f7;
   --surface: #ffffff;
-  --tint: #fce7f3;
-  --ink: #3d1a2e;
-  --ink-soft: #6f4a5e;
-  --hero-1: #ffd6ec;
-  --hero-2: #ffe9f4;
-}
-
-.dark {
-  --bg: #160c12;
-  --surface: #241620;
-  --tint: #3a2230;
-  --ink: #fce9f3;
-  --ink-soft: #cda7bc;
-  --hero-1: #3a1226;
-  --hero-2: #26101c;
+  --tint: #e8e5e8;
+  --ink: #2a262d;
+  --ink-soft: #625f68;
+  /* Hero keeps a soft rose glow that falls away into neutral grey */
+  --hero-1: #fbdcec;
+  --hero-2: #f0eef1;
 }
 
 * {
@@ -54,7 +42,6 @@ body {
   color: var(--ink);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .font-display {

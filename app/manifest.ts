@@ -9,7 +9,7 @@ export default function manifest(): MetadataRoute.Manifest {
       "Third-party loan processing for mortgage brokers. NMLS #" + company.nmls,
     start_url: "/",
     display: "standalone",
-    background_color: "#fff5fa",
+    background_color: "#f7f6f7",
     theme_color: "#e91e8c",
     icons: [
       { src: "/icon.svg", type: "image/svg+xml", sizes: "any" },

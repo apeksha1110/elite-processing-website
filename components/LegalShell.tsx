@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
-import ThemeToggle from "./ThemeToggle";
 import Logo from "./Logo";
 import { company } from "@/lib/content";
 
@@ -16,11 +15,10 @@ export default function LegalShell({
   return (
     <div className="flex min-h-screen flex-col">
       <header className="border-b border-rose-tint bg-surface/85 backdrop-blur-md">
-        <nav className="mx-auto flex max-w-3xl items-center justify-between px-5 py-4">
+        <nav className="mx-auto flex max-w-3xl items-center px-5 py-4">
           <Link href="/" aria-label={company.legalName} className="flex items-center">
             <Logo priority className="h-9 w-auto" />
           </Link>
-          <ThemeToggle />
         </nav>
       </header>
 

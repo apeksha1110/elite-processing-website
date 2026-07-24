@@ -119,7 +119,7 @@ export default function ContactForm() {
       />
 
       {status === "error" && (
-        <p className="rounded-lg bg-red-50 px-4 py-3 text-sm text-red-600 dark:bg-red-950/40 dark:text-red-300">
+        <p className="rounded-lg bg-red-50 px-4 py-3 text-sm text-red-600">
           {errorMsg}{" "}
           <a href={`mailto:${company.email}`} className="underline">
             Email us directly
