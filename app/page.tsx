@@ -288,7 +288,7 @@ export default function Home() {
               </div>
             </Reveal>
             <Reveal delay={0.1}>
-              <div className="mx-auto mt-12 max-w-4xl">
+              <div className="mx-auto mt-12 max-w-4xl rounded-3xl border border-rose-tint bg-surface p-4 shadow-[0_12px_40px_rgba(42,38,45,0.07)] sm:p-8">
                 <UsMap />
               </div>
             </Reveal>
@@ -319,26 +319,30 @@ export default function Home() {
                 </h2>
               </div>
             </Reveal>
-            <div className="mx-auto mt-12 max-w-md">
+            <div className="mx-auto mt-12 max-w-4xl">
               {team.map((m, i) => (
                 <Reveal key={m.name} delay={i * 0.1}>
-                  <div className="flex h-full flex-col rounded-3xl border border-rose-tint bg-surface p-8 text-center shadow-[0_12px_40px_rgba(42,38,45,0.07)]">
-                    <div className="relative mx-auto h-40 w-40 overflow-hidden rounded-full ring-4 ring-rose-soft/40">
-                      <Image
-                        src={m.photo}
-                        alt={m.name}
-                        fill
-                        sizes="160px"
-                        className="object-cover"
-                      />
+                  {/* Photo sits beside the bio on desktop so the whole card
+                      fits one screen; stacks on mobile. */}
+                  <div className="flex flex-col items-center gap-8 rounded-3xl border border-rose-tint bg-surface p-8 shadow-[0_12px_40px_rgba(42,38,45,0.07)] sm:flex-row sm:items-start sm:gap-10 sm:p-10">
+                    <div className="sm:w-44 sm:shrink-0 sm:text-center">
+                      <div className="relative mx-auto h-40 w-40 overflow-hidden rounded-full ring-4 ring-rose-soft/40">
+                        <Image
+                          src={m.photo}
+                          alt={m.name}
+                          fill
+                          sizes="160px"
+                          className="object-cover"
+                        />
+                      </div>
+                      <h3 className="mt-5 text-center font-display text-xl font-semibold text-ink">
+                        {m.name}
+                      </h3>
+                      <p className="text-center text-sm font-medium text-rose-primary">
+                        {m.role}
+                      </p>
                     </div>
-                    <h3 className="mt-5 font-display text-xl font-semibold text-ink">
-                      {m.name}
-                    </h3>
-                    <p className="text-sm font-medium text-rose-primary">
-                      {m.role}
-                    </p>
-                    <div className="mt-4 space-y-3 text-left text-sm leading-relaxed text-ink-soft">
+                    <div className="space-y-3 text-left text-sm leading-relaxed text-ink-soft">
                       {m.bio.map((paragraph) => (
                         <p key={paragraph.slice(0, 32)}>{paragraph}</p>
                       ))}
