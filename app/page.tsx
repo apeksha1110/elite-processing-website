@@ -288,7 +288,7 @@ export default function Home() {
               </div>
             </Reveal>
             <Reveal delay={0.1}>
-              <div className="mx-auto mt-12 max-w-4xl rounded-3xl border border-rose-tint bg-surface p-4 shadow-[0_12px_40px_rgba(42,38,45,0.07)] sm:p-8">
+              <div className="mx-auto mt-12 max-w-4xl">
                 <UsMap />
               </div>
             </Reveal>

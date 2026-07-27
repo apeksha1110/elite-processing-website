@@ -26,14 +26,19 @@ function statusOf(name: string) {
 const fillFor = {
   approved: "var(--color-rose-primary)",
   upcoming: "var(--color-rose-soft)",
-  other: "var(--tint)",
+  other: "var(--map-other)",
 };
 // Label color chosen for contrast against each fill.
 const textFor = {
   approved: "#ffffff",
   upcoming: "var(--color-rose-deep)",
-  other: "var(--ink-soft)",
+  other: "var(--ink)",
 };
+
+// The landmass runs flush to the top, bottom and left of the generated
+// coordinate space, so the viewBox needs a gutter or the SVG viewport clips
+// the drop shadow. Right already has slack for the callout label column.
+const GUTTER = { top: 10, right: 10, bottom: 16, left: 10 };
 
 export default function UsMap() {
   const [, , vbW, vbH] = US_MAP_VIEWBOX.split(" ").map(Number);
@@ -41,33 +46,39 @@ export default function UsMap() {
   return (
     <figure className="w-full">
       <svg
-        viewBox={`0 0 ${vbW + 110} ${vbH}`}
+        viewBox={`${-GUTTER.left} ${-GUTTER.top} ${
+          vbW + 110 + GUTTER.left + GUTTER.right
+        } ${vbH + GUTTER.top + GUTTER.bottom}`}
         role="img"
         aria-label="Map of the United States showing approved and upcoming states"
         className="h-auto w-full"
       >
-        {/* State shapes */}
-        {usStatePaths.map((s) => {
-          const status = statusOf(s.name);
-          const label =
-            status === "approved"
-              ? `${s.name} — Approved`
-              : status === "upcoming"
-                ? `${s.name} — Coming soon`
-                : s.name;
-          return (
-            <path
-              key={s.name}
-              d={s.d}
-              fill={fillFor[status]}
-              stroke="var(--surface)"
-              strokeWidth={1.2}
-              className="transition-[fill] duration-200 hover:fill-[var(--color-rose-deep)]"
-            >
-              <title>{label}</title>
-            </path>
-          );
-        })}
+        {/* State shapes. The filter sits on the group, not the individual
+            paths, so the shadow follows the outer silhouette of the landmass
+            instead of appearing along every internal state border. */}
+        <g style={{ filter: "drop-shadow(2px 5px 5px rgba(42, 38, 45, 0.32))" }}>
+          {usStatePaths.map((s) => {
+            const status = statusOf(s.name);
+            const label =
+              status === "approved"
+                ? `${s.name} — Approved`
+                : status === "upcoming"
+                  ? `${s.name} — Coming soon`
+                  : s.name;
+            return (
+              <path
+                key={s.name}
+                d={s.d}
+                fill={fillFor[status]}
+                stroke="var(--surface)"
+                strokeWidth={1.2}
+                className="transition-[fill] duration-200 hover:fill-[var(--color-rose-deep)]"
+              >
+                <title>{label}</title>
+              </path>
+            );
+          })}
+        </g>
 
         {/* In-place abbreviations for larger states */}
         {usStatePaths

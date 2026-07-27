@@ -23,6 +23,8 @@
   --tint: #e8e5e8;
   --ink: #2a262d;
   --ink-soft: #625f68;
+  /* Coverage map: uncovered states, mid-grey so the white borders read */
+  --map-other: #c9c6ca;
   /* Hero keeps a soft rose glow that falls away into neutral grey */
   --hero-1: #fbdcec;
   --hero-2: #f0eef1;
