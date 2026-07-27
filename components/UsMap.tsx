@@ -11,7 +11,8 @@ const EXTERNAL = ["VT", "NH", "MA", "RI", "CT", "NJ", "DE", "MD", "DC"];
 // Manual label nudges for states whose geometric centroid lands awkwardly
 // (e.g. Florida's centroid falls in the Gulf due to the panhandle/peninsula L).
 const LABEL_OVERRIDES: Record<string, { cx: number; cy: number }> = {
-  Florida: { cx: 762, cy: 476 },
+  // Far enough west that the "L" clears the Atlantic coast.
+  Florida: { cx: 747, cy: 478 },
 };
 const EXT_X = 1024; // label column, to the right of the map
 const EXT_Y0 = 70; // first external label y

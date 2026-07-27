@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import { company } from "@/lib/content";
+import { siteOrigin } from "@/lib/siteOrigin";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -17,7 +18,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(company.siteUrl),
+  metadataBase: new URL(siteOrigin),
   title: "Elite Processing Team | Third-Party Loan Processing",
   description:
     "Elite Processing Team LLC is a third-party loan processing company helping mortgage brokers expand their business with quick, easy transactions. NMLS #2186494.",
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
     description:
       "An easy solution for all mortgage brokers to expand their business.",
     type: "website",
-    url: company.siteUrl,
+    url: siteOrigin,
     siteName: company.legalName,
   },
   twitter: {
@@ -54,10 +55,11 @@ export default function RootLayout({
     name: company.legalName,
     description:
       "Third-party loan processing company helping mortgage brokers expand their business.",
-    url: company.siteUrl,
+    url: siteOrigin,
     telephone: company.phone,
     email: company.email,
-    image: `${company.siteUrl}/logo.png`,
+    // /logo.png doesn't exist; the generated OG card is the real raster image.
+    image: `${siteOrigin}/opengraph-image`,
     areaServed: "United States",
     sameAs: [company.social.facebook, company.social.instagram],
     identifier: { "@type": "PropertyValue", name: "NMLS", value: company.nmls },

@@ -1,23 +1,23 @@
 import type { MetadataRoute } from "next";
-import { company } from "@/lib/content";
+import { siteOrigin } from "@/lib/siteOrigin";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date("2026-06-24");
   return [
     {
-      url: company.siteUrl,
+      url: siteOrigin,
       lastModified,
       changeFrequency: "monthly",
       priority: 1,
     },
     {
-      url: `${company.siteUrl}/privacy`,
+      url: `${siteOrigin}/privacy`,
       lastModified,
       changeFrequency: "yearly",
       priority: 0.3,
     },
     {
-      url: `${company.siteUrl}/terms`,
+      url: `${siteOrigin}/terms`,
       lastModified,
       changeFrequency: "yearly",
       priority: 0.3,
