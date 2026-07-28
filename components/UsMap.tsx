@@ -39,7 +39,10 @@ const textFor = {
 // The landmass runs flush to the top, bottom and left of the generated
 // coordinate space, so the viewBox needs a gutter or the SVG viewport clips
 // the drop shadow. Right already has slack for the callout label column.
-const GUTTER = { top: 10, right: 10, bottom: 16, left: 10 };
+// Bottom is deeper than the shadow needs: the Alaska inset extends below the
+// contiguous states, since drawing it at a sensible size takes more vertical
+// room than the Pacific gap beside Texas provides.
+const GUTTER = { top: 10, right: 10, bottom: 58, left: 10 };
 
 export default function UsMap() {
   const [, , vbW, vbH] = US_MAP_VIEWBOX.split(" ").map(Number);
