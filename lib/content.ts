@@ -168,7 +168,7 @@ export const testimonials = [
     quote:
       "Adding Deepa to my team was one of the best decisions I made. She is very attentive to detail and very responsive to all my clients. She has helped me increase my volume by taking the back-end paperwork off my plate and letting me focus on the front-end. I would recommend her to anyone looking to grow their business.",
     name: "Nikki Shah",
-    role: "Creative Mortgage",
+    role: "Next Step Lending",
   },
   {
     quote:

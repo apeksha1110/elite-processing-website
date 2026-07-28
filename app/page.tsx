@@ -327,12 +327,15 @@ export default function Home() {
                   <div className="flex flex-col items-center gap-8 rounded-3xl border border-rose-tint bg-surface p-8 shadow-[0_12px_40px_rgba(42,38,45,0.07)] sm:flex-row sm:items-start sm:gap-10 sm:p-10">
                     <div className="sm:w-44 sm:shrink-0 sm:text-center">
                       <div className="relative mx-auto h-40 w-40 overflow-hidden rounded-full ring-4 ring-rose-soft/40">
+                        {/* Source is 2400x3000; a square cover crop would take
+                            20px off the top and clip her head, so bias the
+                            crop upward. */}
                         <Image
                           src={m.photo}
                           alt={m.name}
                           fill
                           sizes="160px"
-                          className="object-cover"
+                          className="object-cover object-[center_20%]"
                         />
                       </div>
                       <h3 className="mt-5 text-center font-display text-xl font-semibold text-ink">
