@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <LegalShell title="Privacy Policy" updated="June 22, 2026">
+    <LegalShell title="Privacy Policy" updated="July 29, 2026">
       <p>
         {company.legalName} (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or
         &ldquo;our&rdquo;) respects your privacy. This policy explains what
@@ -45,6 +45,17 @@ export default function PrivacyPage() {
           needed to provide loan-processing services on files you assign to us
           (for example, with the relevant lender or underwriter), or where
           required by law.
+        </p>
+      </section>
+
+      <section>
+        <h2>Mobile information and text messaging</h2>
+        {/* Verbatim A2P 10DLC / carrier-compliance language — do not reword. */}
+        <p>
+          No mobile information will be shared with third parties/affiliates for
+          marketing/promotional purposes. All other categories exclude text
+          messaging originator opt-in data and consent; this information will
+          not be shared with any third parties.
         </p>
       </section>
 
